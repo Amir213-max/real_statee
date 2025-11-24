@@ -1,0 +1,139 @@
+[
+  {
+    "id": 1,
+    "developerId": 1,
+    "destinationId": 1,
+    "name_ar": "مشروع النخلة السكني",
+    "name_en": "Al Nakheel Residential Project",
+    "description_ar": "مشروع سكني فاخر في قلب الرياض يضم وحدات سكنية عصرية بتصاميم راقية",
+    "description_en": "Luxury residential project in the heart of Riyadh with modern units and elegant designs",
+    "images": [
+      "/assets/brand/images/shutterstock_611401874.jpg",
+      "/assets/brand/images/shutterstock_1350435122.jpg",
+      "/assets/brand/images/shutterstock_1996485695.jpg"
+    ],
+    "address_ar": "حي النخيل، الرياض",
+    "address_en": "Al Nakheel District, Riyadh",
+    "latitude": 24.7136,
+    "longitude": 46.6753,
+    "unitsCount": 25,
+    "whatsappNumber": "966501234567"
+  },
+  {
+    "id": 2,
+    "developerId": 1,
+    "destinationId": 1,
+    "name_ar": "مشروع الواحة التجاري",
+    "name_en": "Al Waha Commercial Project",
+    "description_ar": "مجمع تجاري متكامل يضم محلات ومكاتب ومساحات تجارية",
+    "description_en": "Integrated commercial complex with shops, offices and commercial spaces",
+    "images": [
+      "/assets/brand/images/shutterstock_2047345613.jpg",
+      "/assets/brand/images/shutterstock_2124196751.jpg"
+    ],
+    "address_ar": "طريق الملك فهد، الرياض",
+    "address_en": "King Fahd Road, Riyadh",
+    "latitude": 24.7136,
+    "longitude": 46.6753,
+    "unitsCount": 15,
+    "whatsappNumber": "966501234567"
+  },
+  {
+    "id": 3,
+    "developerId": 2,
+    "destinationId": 1,
+    "name_ar": "مشروع القصر السكني",
+    "name_en": "Al Qasr Residential Project",
+    "description_ar": "مشروع سكني راقي بتصاميم كلاسيكية عصرية",
+    "description_en": "Elegant residential project with modern classic designs",
+    "images": [
+      "/assets/brand/images/shutterstock_2209394407.jpg",
+      "/assets/brand/images/shutterstock_2256037689.jpg",
+      "/assets/brand/images/shutterstock_2330406565.jpg"
+    ],
+    "address_ar": "حي العليا، الرياض",
+    "address_en": "Al Olaya District, Riyadh",
+    "latitude": 24.7136,
+    "longitude": 46.6753,
+    "unitsCount": 30,
+    "whatsappNumber": "966501234567"
+  },
+  {
+    "id": 4,
+    "developerId": 4,
+    "destinationId": 2,
+    "name_ar": "مشروع الكورنيش الساحلي",
+    "name_en": "Corniche Coastal Project",
+    "description_ar": "مشروع سكني فاخر على الواجهة البحرية في جدة",
+    "description_en": "Luxury residential project on the waterfront in Jeddah",
+    "images": [
+      "/assets/brand/images/shutterstock_2389014401.jpg",
+      "/assets/brand/images/shutterstock_2409548359.jpg"
+    ],
+    "address_ar": "كورنيش جدة",
+    "address_en": "Jeddah Corniche",
+    "latitude": 21.5433,
+    "longitude": 39.1728,
+    "unitsCount": 20,
+    "whatsappNumber": "966501234567"
+  },
+  {
+    "id": 5,
+    "developerId": 4,
+    "destinationId": 2,
+    "name_ar": "مشروع النور السكني",
+    "name_en": "Al Noor Residential Project",
+    "description_ar": "مشروع سكني حديث بتصاميم عصرية ومرافق متكاملة",
+    "description_en": "Modern residential project with contemporary designs and integrated facilities",
+    "images": [
+      "/assets/brand/images/shutterstock_2459197279.jpg",
+      "/assets/brand/images/Artboard-1-copy-3.jpg",
+      "/assets/brand/images/shutterstock_1350435122.jpg"
+    ],
+    "address_ar": "حي الزهراء، جدة",
+    "address_en": "Al Zahra District, Jeddah",
+    "latitude": 21.5433,
+    "longitude": 39.1728,
+    "unitsCount": 35,
+    "whatsappNumber": "966501234567"
+  },
+  {
+    "id": 6,
+    "developerId": 6,
+    "destinationId": 3,
+    "name_ar": "مشروع الخليج السكني",
+    "name_en": "Al Khaleej Residential Project",
+    "description_ar": "مشروع سكني متكامل في الدمام",
+    "description_en": "Integrated residential project in Dammam",
+    "images": [
+      "/assets/brand/images/shutterstock_611401874.jpg",
+      "/assets/brand/images/shutterstock_1996485695.jpg"
+    ],
+    "address_ar": "حي الفيصلية، الدمام",
+    "address_en": "Al Faisaliyah District, Dammam",
+    "latitude": 26.4207,
+    "longitude": 50.0888,
+    "unitsCount": 28,
+    "whatsappNumber": "966501234567"
+  },
+  {
+    "id": 7,
+    "developerId": 7,
+    "destinationId": 4,
+    "name_ar": "مشروع الحرم السكني",
+    "name_en": "Al Haram Residential Project",
+    "description_ar": "مشروع سكني قريب من الحرم النبوي الشريف",
+    "description_en": "Residential project near the Prophet's Mosque",
+    "images": [
+      "/assets/brand/images/shutterstock_2047345613.jpg",
+      "/assets/brand/images/shutterstock_2256037689.jpg"
+    ],
+    "address_ar": "حي العالية، المدينة المنورة",
+    "address_en": "Al Aliyah District, Madinah",
+    "latitude": 24.5247,
+    "longitude": 39.5692,
+    "unitsCount": 22,
+    "whatsappNumber": "966501234567"
+  }
+]
+

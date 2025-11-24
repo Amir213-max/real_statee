@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "name_ar": "الرياض",
+    "name_en": "Riyadh",
+    "image": "/assets/brand/images/shutterstock_2256037689.jpg",
+    "description_ar": "عاصمة المملكة العربية السعودية ومركزها التجاري والمالي",
+    "description_en": "The capital and commercial center of Saudi Arabia",
+    "developersCount": 5,
+    "projectsCount": 12
+  },
+  {
+    "id": 2,
+    "name_ar": "جدة",
+    "name_en": "Jeddah",
+    "image": "/assets/brand/images/shutterstock_2047345613.jpg",
+    "description_ar": "عروس البحر الأحمر والبوابة الرئيسية للحجاج",
+    "description_en": "The bride of the Red Sea and the main gateway for pilgrims",
+    "developersCount": 4,
+    "projectsCount": 10
+  },
+  {
+    "id": 3,
+    "name_ar": "الدمام",
+    "name_en": "Dammam",
+    "image": "/assets/brand/images/shutterstock_1996485695.jpg",
+    "description_ar": "عاصمة المنطقة الشرقية ومركز النفط",
+    "description_en": "The capital of the Eastern Province and oil center",
+    "developersCount": 3,
+    "projectsCount": 8
+  },
+  {
+    "id": 4,
+    "name_ar": "المدينة المنورة",
+    "name_en": "Madinah",
+    "image": "/assets/brand/images/shutterstock_1350435122.jpg",
+    "description_ar": "المدينة المباركة وثاني أقدس مكان في الإسلام",
+    "description_en": "The blessed city and second holiest place in Islam",
+    "developersCount": 2,
+    "projectsCount": 6
+  }
+]
+

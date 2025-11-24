@@ -1,0 +1,4 @@
+Color Identity
+Primary Primary Secondary Secondary
+70% 20% 10% 10%
+#1e1e1e #efefef #cfcfcf #f0cb8e

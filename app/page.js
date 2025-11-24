@@ -1,65 +1,174 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import SectionHeader from '@/components/SectionHeader';
+import ProjectCard from '@/components/Cards/ProjectCard';
+import Button from '@/components/ui/Button';
+import projectsData from '@/data/projects.json';
+import destinationsData from '@/data/destinations.json';
 
 export default function Home() {
+  const { language, t } = useLanguage();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedDestination, setSelectedDestination] = useState('');
+  const isRTL = language === 'ar';
+
+  const translations = {
+    heroTitle: {
+      ar: 'مستوحى من البحر الأحمر',
+      en: 'Inspired by the Red Sea',
+    },
+    heroSubtitle: {
+      ar: 'اكتشف أفضل العقارات الفاخرة التي تربط مصر والمملكة العربية السعودية',
+      en: 'Discover premium real estate connecting Egypt & Saudi Arabia',
+    },
+    search: { ar: 'بحث', en: 'Search' },
+    allDestinations: { ar: 'جميع الوجهات', en: 'All Destinations' },
+    featuredProperties: { ar: 'عقارات مميزة', en: 'Featured Properties' },
+    viewAll: { ar: 'عرض الكل', en: 'View All' },
+    exploreProperties: { ar: 'استكشف العقارات', en: 'Explore Properties' },
+    searchPlaceholder: {
+      ar: 'ابحث عن عقارك المثالي...',
+      en: 'Search for your perfect property...',
+    },
+  };
+
+  const featuredProjects = projectsData.slice(0, 6);
+  const heroImages = [
+    '/assets/brand/images/shutterstock_1996485695.jpg',
+    '/assets/brand/images/shutterstock_2047345613.jpg',
+    '/assets/brand/images/shutterstock_2558087881.jpg',
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <div className={`min-h-screen bg-[#efefef] ${isRTL ? 'rtl' : 'ltr'}`}>
+      <Navbar />
+
+      {/* Premium Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={heroImages[1]}
+            alt="Yafel Real Estate"
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1e1e1e]/80 via-[#1e1e1e]/70 to-[#1e1e1e]/80"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-[#efefef] mb-6 leading-tight animate-fadeInUp">
+            {t(translations.heroTitle)}
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl text-[#cfcfcf] mb-6 leading-tight animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+            {t(translations.heroSubtitle)}
           </p>
+
+          {/* Search Bar */}
+          <div className="max-w-4xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 flex flex-col md:flex-row gap-4 hover-lift">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={t(translations.searchPlaceholder)}
+                className="flex-1 px-6 py-4 border border-[#cfcfcf] rounded-xl focus:ring-2 focus:ring-[#f0cb8e] focus:border-transparent text-[#1e1e1e] text-lg"
+              />
+              <select
+                value={selectedDestination}
+                onChange={(e) => setSelectedDestination(e.target.value)}
+                className="px-6 py-4 border border-[#cfcfcf] rounded-xl focus:ring-2 focus:ring-[#f0cb8e] focus:border-transparent text-[#1e1e1e] text-lg bg-white"
+              >
+                <option value="">{t(translations.allDestinations)}</option>
+                {destinationsData.map((dest) => (
+                  <option key={dest.id} value={dest.id}>
+                    {t({ ar: dest.name_ar, en: dest.name_en })}
+                  </option>
+                ))}
+              </select>
+              <Button size="lg" className="whitespace-nowrap">
+                {t(translations.search)}
+              </Button>
+            </div>
+          </div>
+
+          <div className="mt-12 animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
+            <Button variant="secondary" size="lg" className="hover-lift hover-glow">
+              {t(translations.exploreProperties)}
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Featured Properties Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            title={t(translations.featuredProperties)}
+            subtitle={
+              language === 'ar'
+                ? 'عقارات فاخرة مختارة بعناية'
+                : 'Carefully selected luxury properties'
+            }
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {featuredProjects.map((project, index) => (
+              <div
+                key={project.id}
+                className="animate-fadeInUp"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12 animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
+            <Button variant="outline" size="lg" className="hover-lift">
+              {t(translations.viewAll)}
+            </Button>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Brand Story Section */}
+      <section className="py-24 bg-gradient-to-br from-[#1e1e1e] to-[#353535] text-[#efefef]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="animate-fadeInUp">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                {language === 'ar' ? 'قصتنا' : 'Our Story'}
+              </h2>
+              <p className="text-lg text-[#cfcfcf] mb-6 leading-relaxed">
+                {language === 'ar'
+                  ? 'يافل هي علامة تجارية عقارية فاخرة مستوحاة من جمال البحر الأحمر وروح الاتصال بين مصر والمملكة العربية السعودية. نحن نؤمن ببناء مجتمعات مستدامة وخلق قيمة حقيقية للمستثمرين والمقيمين على حد سواء.'
+                  : 'Yafel is a premium real estate brand inspired by the beauty of the Red Sea and the spirit of connection between Egypt and Saudi Arabia. We believe in building sustainable communities and creating real value for both investors and residents.'}
+              </p>
+              <Button variant="secondary" className="hover-lift">
+                {language === 'ar' ? 'تعرف علينا أكثر' : 'Learn More About Us'}
+              </Button>
+            </div>
+            <div className="relative h-96 rounded-2xl overflow-hidden animate-scaleIn hover-lift">
+              <Image
+                src="/assets/brand/images/shutterstock_2209394407.jpg"
+                alt="Yafel Real Estate"
+                fill
+                className="object-cover transition-transform duration-500 hover:scale-110"
+                unoptimized
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
