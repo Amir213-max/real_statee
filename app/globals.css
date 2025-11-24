@@ -280,3 +280,58 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Property Image Gallery Swiper Styles */
+.property-main-swiper {
+  position: relative;
+}
+
+.property-main-swiper .swiper-button-next,
+.property-main-swiper .swiper-button-prev {
+  color: #efefef;
+  background: rgba(30, 30, 30, 0.7);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.property-main-swiper .swiper-button-next:hover,
+.property-main-swiper .swiper-button-prev:hover {
+  background: rgba(30, 30, 30, 0.9);
+  transform: scale(1.1);
+}
+
+.property-main-swiper .swiper-button-next::after,
+.property-main-swiper .swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.property-main-swiper .swiper-pagination-bullet {
+  background: #efefef;
+  opacity: 0.5;
+  width: 12px;
+  height: 12px;
+  transition: all 0.3s ease;
+}
+
+.property-main-swiper .swiper-pagination-bullet-active {
+  background: #f0cb8e;
+  opacity: 1;
+  width: 24px;
+  border-radius: 6px;
+}
+
+.property-thumbs-swiper {
+  padding: 8px 0;
+}
+
+.property-thumbs-swiper .swiper-slide {
+  transition: all 0.3s ease;
+}
+
+.property-thumbs-swiper .swiper-slide:hover {
+  transform: translateY(-4px);
+}

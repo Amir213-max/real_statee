@@ -26,8 +26,8 @@ export default function Logo({
       <Image
         src={getLogoPath()}
         alt="Yafel Real Estate"
-        width={variant === 'emblem' ? 60 : 180}
-        height={variant === 'emblem' ? 60 : 60}
+        width={variant === 'emblem' ? 100 : 100}
+        height={variant === 'emblem' ? 40 : 40}
         className="object-contain"
         priority
         unoptimized

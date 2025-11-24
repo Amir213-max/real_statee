@@ -49,7 +49,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <Logo variant="horizontal" className="h-12" />
+              <Logo variant="horizontal" className="h-8 sm:h-10" />
             </Link>
           </div>
 
