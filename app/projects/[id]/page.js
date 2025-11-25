@@ -61,7 +61,7 @@ export default function ProjectDetailPage({ params }) {
             </p>
             <button
               onClick={whatsappModal.open}
-              className="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors font-semibold"
+              className="px-6 py-3 bg-black text-white rounded-md hover:bg-neutral-800 transition-colors font-semibold"
             >
               {t(translations.legalConsultant)}
             </button>

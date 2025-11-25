@@ -61,7 +61,7 @@ export default function UnitDetailPage({ params }) {
           <div className="bg-white rounded-lg shadow-md p-8 mb-8">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
               <div>
-                <h1 className="text-4xl font-bold text-blue-600 mb-2">
+                <h1 className="text-4xl font-bold text-neutral-900 mb-2">
                   {formatPrice(unit.price)}
                 </h1>
                 {project && (
@@ -73,14 +73,14 @@ export default function UnitDetailPage({ params }) {
               <div className="flex gap-4">
                 <button
                   onClick={contactModal.open}
-                  className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-semibold"
+                  className="px-6 py-3 bg-neutral-900 text-white rounded-md hover:bg-neutral-700 transition-colors font-semibold"
                 >
                   {t(translations.contactUs)}
                 </button>
                 {project && (
                   <button
                     onClick={whatsappModal.open}
-                    className="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors font-semibold"
+                    className="px-6 py-3 bg-black text-white rounded-md hover:bg-neutral-800 transition-colors font-semibold"
                   >
                     {t(translations.legalConsultant)}
                   </button>
