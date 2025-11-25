@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large brand files (PDFs and large images)
+public/assets/brand/*.pdf
+public/assets/brand/**/*.pdf
+public/assets/brand/images/shutterstock_*.jpg
