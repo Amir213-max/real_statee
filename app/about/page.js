@@ -110,7 +110,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-96 rounded-2xl overflow-hidden">
               <Image
-                src="/assets/brand/images/shutterstock_2209394407.jpg"
+                src="https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2209394407_uuurxb"
                 alt="Yafel Real Estate"
                 fill
                 className="object-cover"

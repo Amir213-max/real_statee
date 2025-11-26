@@ -2,6 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
+import { convertGoogleDriveUrl } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Button from '@/components/ui/Button';
@@ -23,10 +24,10 @@ export default function PropertyDetailsPage() {
     price: 'SAR 2,500,000',
     location: 'Riyadh, Al Olaya',
     images: [
-      '/assets/brand/images/shutterstock_2256037689.jpg',
-      '/assets/brand/images/shutterstock_2209394407.jpg',
+      'https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2256037689_mc4cxv',
+      'https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2209394407_uuurxb',
       '/assets/brand/images/shutterstock_2558087881.jpg',
-      '/assets/brand/images/shutterstock_1996485695.jpg',
+      convertGoogleDriveUrl('https://drive.google.com/file/d/1A6PdIvXHPNifZJ6r8DRXj4wpwNr9795p/view?usp=sharing'),
     ],
     features: [
       { ar: '4 غرف نوم', en: '4 Bedrooms' },

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { convertGoogleDriveUrl } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PropertyCard from '@/components/Cards/PropertyCard';
@@ -28,7 +29,7 @@ export default function PropertiesPage() {
         : 'Modern villa with contemporary design and spacious gardens',
       price: 'SAR 2,500,000',
       location: 'Riyadh, Al Olaya',
-      image: '/assets/brand/images/shutterstock_2256037689.jpg',
+      image: 'https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2256037689_mc4cxv',
       featured: true,
     },
     {
@@ -39,7 +40,7 @@ export default function PropertiesPage() {
         : 'Elegant apartment with sea view',
       price: 'SAR 1,200,000',
       location: 'Jeddah, Corniche',
-      image: '/assets/brand/images/shutterstock_2209394407.jpg',
+      image: 'https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2209394407_uuurxb',
       featured: false,
     },
     {
@@ -61,7 +62,7 @@ export default function PropertiesPage() {
         : 'Luxury penthouse with panoramic views',
       price: 'SAR 3,500,000',
       location: 'Riyadh, Al Nakheel',
-      image: '/assets/brand/images/shutterstock_1996485695.jpg',
+      image: convertGoogleDriveUrl('https://drive.google.com/file/d/1A6PdIvXHPNifZJ6r8DRXj4wpwNr9795p/view?usp=sharing'),
       featured: false,
     },
     {
@@ -72,7 +73,7 @@ export default function PropertiesPage() {
         : 'Modern apartment perfect for young professionals',
       price: 'SAR 450,000',
       location: 'Jeddah, Al Zahra',
-      image: '/assets/brand/images/shutterstock_2047345613.jpg',
+      image: convertGoogleDriveUrl('https://drive.google.com/file/d/1DC79hQjquKI53xWewYXLI6UosblZWF6j/view?usp=sharing'),
       featured: false,
     },
     {
@@ -83,7 +84,7 @@ export default function PropertiesPage() {
         : 'Luxury villa directly on the beach',
       price: 'SAR 4,200,000',
       location: 'Jeddah, Corniche',
-      image: '/assets/brand/images/shutterstock_2124196751.jpg',
+      image: 'https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2124196751_rvwrt0',
       featured: true,
     },
   ];

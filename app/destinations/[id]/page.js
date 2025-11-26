@@ -2,11 +2,13 @@
 
 import { use } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { convertGoogleDriveUrl, isGoogleDriveUrl } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SectionHeader from '@/components/SectionHeader';
 import DeveloperCard from '@/components/Cards/DeveloperCard';
 import Image from 'next/image';
+import GoogleDriveImage from '@/components/GoogleDriveImage';
 import destinationsData from '@/data/destinations.json';
 import developersData from '@/data/developers.json';
 
@@ -41,12 +43,22 @@ export default function DestinationDetailPage({ params }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="relative w-full md:w-96 h-64 rounded-lg overflow-hidden">
-              <Image
-                src={destination.image || '/destinations/default.jpg'}
-                alt={t({ ar: destination.name_ar, en: destination.name_en })}
-                fill
-                className="object-cover"
-              />
+              {isGoogleDriveUrl(destination.image) ? (
+                <GoogleDriveImage
+                  src={destination.image || '/destinations/default.jpg'}
+                  alt={t({ ar: destination.name_ar, en: destination.name_en })}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <Image
+                  src={convertGoogleDriveUrl(destination.image) || '/destinations/default.jpg'}
+                  alt={t({ ar: destination.name_ar, en: destination.name_en })}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              )}
             </div>
             <div className="flex-1 text-center md:text-right rtl:md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">

@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import GoogleDriveImage from '@/components/GoogleDriveImage';
 import { useLanguage } from '@/context/LanguageContext';
-import { formatPrice } from '@/lib/utils';
+import { formatPrice, convertGoogleDriveUrl, isGoogleDriveUrl } from '@/lib/utils';
 
 export default function UnitCard({ unit }) {
   const { language, t } = useLanguage();
@@ -13,12 +14,22 @@ export default function UnitCard({ unit }) {
     <Link href={`/units/${unit.id}`}>
       <div className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 ${isRTL ? 'rtl' : 'ltr'}`}>
         <div className="relative h-48 w-full">
-          <Image
-            src={unit.images?.[0] || '/units/default.jpg'}
-            alt={`Unit ${unit.id}`}
-            fill
-            className="object-cover"
-          />
+          {isGoogleDriveUrl(unit.images?.[0]) ? (
+            <GoogleDriveImage
+              src={unit.images?.[0] || '/units/default.jpg'}
+              alt={`Unit ${unit.id}`}
+              fill
+              className="object-cover"
+            />
+          ) : (
+            <Image
+              src={convertGoogleDriveUrl(unit.images?.[0]) || '/units/default.jpg'}
+              alt={`Unit ${unit.id}`}
+              fill
+              className="object-cover"
+              unoptimized
+            />
+          )}
         </div>
         <div className="p-6">
           <div className="flex items-center justify-between mb-2">

@@ -8,9 +8,9 @@
     "description_ar": "مشروع سكني فاخر في قلب الرياض يضم وحدات سكنية عصرية بتصاميم راقية",
     "description_en": "Luxury residential project in the heart of Riyadh with modern units and elegant designs",
     "images": [
-      "/assets/brand/images/shutterstock_611401874.jpg",
-      "/assets/brand/images/shutterstock_1350435122.jpg",
-      "/assets/brand/images/shutterstock_1996485695.jpg"
+      "https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_611401874_fcpks5",
+      "https://drive.google.com/file/d/15dVmK8yUqctxnGl8vydn_XjUZPcwIo02/view?usp=sharing",
+      "https://drive.google.com/file/d/1A6PdIvXHPNifZJ6r8DRXj4wpwNr9795p/view?usp=sharing"
     ],
     "address_ar": "حي النخيل، الرياض",
     "address_en": "Al Nakheel District, Riyadh",
@@ -28,8 +28,8 @@
     "description_ar": "مجمع تجاري متكامل يضم محلات ومكاتب ومساحات تجارية",
     "description_en": "Integrated commercial complex with shops, offices and commercial spaces",
     "images": [
-      "/assets/brand/images/shutterstock_2047345613.jpg",
-      "/assets/brand/images/shutterstock_2124196751.jpg"
+      "https://drive.google.com/file/d/1DC79hQjquKI53xWewYXLI6UosblZWF6j/view?usp=sharing",
+      "https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2124196751_rvwrt0"
     ],
     "address_ar": "طريق الملك فهد، الرياض",
     "address_en": "King Fahd Road, Riyadh",
@@ -47,9 +47,9 @@
     "description_ar": "مشروع سكني راقي بتصاميم كلاسيكية عصرية",
     "description_en": "Elegant residential project with modern classic designs",
     "images": [
-      "/assets/brand/images/shutterstock_2209394407.jpg",
-      "/assets/brand/images/shutterstock_2256037689.jpg",
-      "/assets/brand/images/shutterstock_2330406565.jpg"
+      "https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2209394407_uuurxb",
+      "https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2256037689_mc4cxv",
+      "https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2330406565_npl0io"
     ],
     "address_ar": "حي العليا، الرياض",
     "address_en": "Al Olaya District, Riyadh",
@@ -67,8 +67,8 @@
     "description_ar": "مشروع سكني فاخر على الواجهة البحرية في جدة",
     "description_en": "Luxury residential project on the waterfront in Jeddah",
     "images": [
-      "/assets/brand/images/shutterstock_2389014401.jpg",
-      "/assets/brand/images/shutterstock_2409548359.jpg"
+      "https://drive.google.com/file/d/1bdIBL0_ducldAic2GS-QvXS6ennSYq6Q/view?usp=sharing",
+      "https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2409548359_pin0wb"
     ],
     "address_ar": "كورنيش جدة",
     "address_en": "Jeddah Corniche",
@@ -86,9 +86,9 @@
     "description_ar": "مشروع سكني حديث بتصاميم عصرية ومرافق متكاملة",
     "description_en": "Modern residential project with contemporary designs and integrated facilities",
     "images": [
-      "/assets/brand/images/shutterstock_2459197279.jpg",
+      "https://drive.google.com/file/d/1XNpIIzO5RHliBSM5R3URsQTXzF18kvTZ/view?usp=sharing",
       "/assets/brand/images/Artboard-1-copy-3.jpg",
-      "/assets/brand/images/shutterstock_1350435122.jpg"
+      "https://drive.google.com/file/d/15dVmK8yUqctxnGl8vydn_XjUZPcwIo02/view?usp=sharing"
     ],
     "address_ar": "حي الزهراء، جدة",
     "address_en": "Al Zahra District, Jeddah",
@@ -106,8 +106,8 @@
     "description_ar": "مشروع سكني متكامل في الدمام",
     "description_en": "Integrated residential project in Dammam",
     "images": [
-      "/assets/brand/images/shutterstock_611401874.jpg",
-      "/assets/brand/images/shutterstock_1996485695.jpg"
+      "https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_611401874_fcpks5",
+      "https://drive.google.com/file/d/1A6PdIvXHPNifZJ6r8DRXj4wpwNr9795p/view?usp=sharing"
     ],
     "address_ar": "حي الفيصلية، الدمام",
     "address_en": "Al Faisaliyah District, Dammam",
@@ -125,8 +125,8 @@
     "description_ar": "مشروع سكني قريب من الحرم النبوي الشريف",
     "description_en": "Residential project near the Prophet's Mosque",
     "images": [
-      "/assets/brand/images/shutterstock_2047345613.jpg",
-      "/assets/brand/images/shutterstock_2256037689.jpg"
+      "https://drive.google.com/file/d/1DC79hQjquKI53xWewYXLI6UosblZWF6j/view?usp=sharing",
+      "https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2256037689_mc4cxv"
     ],
     "address_ar": "حي العالية، المدينة المنورة",
     "address_en": "Al Aliyah District, Madinah",

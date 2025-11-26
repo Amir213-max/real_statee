@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import GoogleDriveImage from '@/components/GoogleDriveImage';
 import { useLanguage } from '@/context/LanguageContext';
-import { formatNumber } from '@/lib/utils';
+import { formatNumber, convertGoogleDriveUrl, isGoogleDriveUrl } from '@/lib/utils';
 
 export default function DestinationCard({ destination }) {
   const { language, t } = useLanguage();
@@ -13,12 +14,22 @@ export default function DestinationCard({ destination }) {
     <Link href={`/destinations/${destination.id}`}>
       <div className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 ${isRTL ? 'rtl' : 'ltr'}`}>
         <div className="relative h-48 w-full">
-          <Image
-            src={destination.image || '/destinations/default.jpg'}
-            alt={t({ ar: destination.name_ar, en: destination.name_en })}
-            fill
-            className="object-cover"
-          />
+          {isGoogleDriveUrl(destination.image) ? (
+            <GoogleDriveImage
+              src={destination.image || '/destinations/default.jpg'}
+              alt={t({ ar: destination.name_ar, en: destination.name_en })}
+              fill
+              className="object-cover"
+            />
+          ) : (
+            <Image
+              src={convertGoogleDriveUrl(destination.image) || '/destinations/default.jpg'}
+              alt={t({ ar: destination.name_ar, en: destination.name_en })}
+              fill
+              className="object-cover"
+              unoptimized
+            />
+          )}
         </div>
         <div className="p-6">
           <h3 className="text-xl font-bold text-gray-900 mb-2">

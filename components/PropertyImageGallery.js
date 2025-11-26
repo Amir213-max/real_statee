@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import GoogleDriveImage from '@/components/GoogleDriveImage';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Thumbs, FreeMode } from 'swiper/modules';
+import { convertGoogleDriveUrl, isGoogleDriveUrl } from '@/lib/utils';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -53,21 +55,33 @@ export default function PropertyImageGallery({ images, propertyName }) {
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           className="property-main-swiper rounded-2xl overflow-hidden shadow-xl"
         >
-          {images.map((img, index) => (
-            <SwiperSlide key={index}>
-              <div className="relative w-full h-[400px] md:h-[600px] lg:h-[700px]">
-                <Image
-                  src={img}
-                  alt={`${propertyName} - Image ${index + 1}`}
-                  fill
-                  className="object-cover"
-                  priority={index === 0}
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
-            </SwiperSlide>
-          ))}
+          {images.map((img, index) => {
+            const convertedUrl = convertGoogleDriveUrl(img);
+            return (
+              <SwiperSlide key={index}>
+                <div className="relative w-full h-[400px] md:h-[600px] lg:h-[700px]">
+                  {isGoogleDriveUrl(img) ? (
+                    <GoogleDriveImage
+                      src={img}
+                      alt={`${propertyName} - Image ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <Image
+                      src={convertedUrl}
+                      alt={`${propertyName} - Image ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      priority={index === 0}
+                      unoptimized
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
 
         {/* Image Counter */}
@@ -87,28 +101,40 @@ export default function PropertyImageGallery({ images, propertyName }) {
           slidesPerView="auto"
           className="property-thumbs-swiper"
         >
-          {images.map((img, index) => (
-            <SwiperSlide
-              key={index}
-              className="!w-auto cursor-pointer"
-            >
-              <div
-                className={`relative w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                  activeIndex === index
-                    ? 'border-[#f0cb8e] scale-105 shadow-lg'
-                    : 'border-transparent hover:border-[#cfcfcf] opacity-70 hover:opacity-100'
-                }`}
+          {images.map((img, index) => {
+            const convertedUrl = convertGoogleDriveUrl(img);
+            return (
+              <SwiperSlide
+                key={index}
+                className="!w-auto cursor-pointer"
               >
-                <Image
-                  src={img}
-                  alt={`Thumbnail ${index + 1}`}
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-            </SwiperSlide>
-          ))}
+                <div
+                  className={`relative w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                    activeIndex === index
+                      ? 'border-[#f0cb8e] scale-105 shadow-lg'
+                      : 'border-transparent hover:border-[#cfcfcf] opacity-70 hover:opacity-100'
+                  }`}
+                >
+                  {isGoogleDriveUrl(img) ? (
+                    <GoogleDriveImage
+                      src={img}
+                      alt={`Thumbnail ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <Image
+                      src={convertedUrl}
+                      alt={`Thumbnail ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
+                  )}
+                </div>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       )}
     </div>

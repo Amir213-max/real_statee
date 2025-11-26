@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import GoogleDriveImage from '@/components/GoogleDriveImage';
 import { useLanguage } from '@/context/LanguageContext';
+import { convertGoogleDriveUrl, isGoogleDriveUrl } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SectionHeader from '@/components/SectionHeader';
@@ -39,8 +41,8 @@ export default function Home() {
 
   const featuredProjects = projectsData.slice(0, 6);
   const heroImages = [
-    '/assets/brand/images/shutterstock_1996485695.jpg',
-    '/assets/brand/images/shutterstock_2047345613.jpg',
+    convertGoogleDriveUrl('https://drive.google.com/file/d/1A6PdIvXHPNifZJ6r8DRXj4wpwNr9795p/view?usp=sharing'),
+    convertGoogleDriveUrl('https://drive.google.com/file/d/1DC79hQjquKI53xWewYXLI6UosblZWF6j/view?usp=sharing'),
     '/assets/brand/images/shutterstock_2558087881.jpg',
   ];
 
@@ -52,14 +54,23 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src={heroImages[1]}
-            alt="Yafel Real Estate"
-            fill
-            className="object-cover"
-            priority
-            unoptimized
-          />
+          {isGoogleDriveUrl(heroImages[1]) ? (
+            <GoogleDriveImage
+              src={heroImages[1]}
+              alt="Yafel Real Estate"
+              fill
+              className="object-cover"
+            />
+          ) : (
+            <Image
+              src={heroImages[1]}
+              alt="Yafel Real Estate"
+              fill
+              className="object-cover"
+              priority
+              unoptimized
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-br from-[#1e1e1e]/80 via-[#1e1e1e]/70 to-[#1e1e1e]/80"></div>
         </div>
 
@@ -157,7 +168,7 @@ export default function Home() {
             </div>
             <div className="relative h-96 rounded-2xl overflow-hidden animate-scaleIn hover-lift">
               <Image
-                src="/assets/brand/images/shutterstock_2209394407.jpg"
+                src="https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2209394407_uuurxb"
                 alt="Yafel Real Estate"
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-110"
