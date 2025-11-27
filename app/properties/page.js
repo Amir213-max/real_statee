@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { convertGoogleDriveUrl } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PropertyCard from '@/components/Cards/PropertyCard';
@@ -62,7 +61,7 @@ export default function PropertiesPage() {
         : 'Luxury penthouse with panoramic views',
       price: 'SAR 3,500,000',
       location: 'Riyadh, Al Nakheel',
-      image: convertGoogleDriveUrl('https://drive.google.com/file/d/1A6PdIvXHPNifZJ6r8DRXj4wpwNr9795p/view?usp=sharing'),
+      image: 'https://png.pngtree.com/thumb_back/fw800/background/20240601/pngtree-real-estate-luxury-building-sale-property-background-images-image_15851318.jpg',
       featured: false,
     },
     {
@@ -73,7 +72,7 @@ export default function PropertiesPage() {
         : 'Modern apartment perfect for young professionals',
       price: 'SAR 450,000',
       location: 'Jeddah, Al Zahra',
-      image: convertGoogleDriveUrl('https://drive.google.com/file/d/1DC79hQjquKI53xWewYXLI6UosblZWF6j/view?usp=sharing'),
+      image: 'https://th.bing.com/th/id/OIP.Jy16vSGLOrlRWJ-2BrVMrgHaFj?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3',
       featured: false,
     },
     {

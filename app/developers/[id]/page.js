@@ -2,14 +2,12 @@
 
 import { use } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { convertGoogleDriveUrl, isGoogleDriveUrl } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SectionHeader from '@/components/SectionHeader';
 import ProjectCard from '@/components/Cards/ProjectCard';
 import Badge from '@/components/Badge';
 import Image from 'next/image';
-import GoogleDriveImage from '@/components/GoogleDriveImage';
 import developersData from '@/data/developers.json';
 import projectsData from '@/data/projects.json';
 
@@ -44,22 +42,13 @@ export default function DeveloperDetailPage({ params }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-gray-200">
-              {isGoogleDriveUrl(developer.logo) ? (
-                <GoogleDriveImage
-                  src={developer.logo || '/logos/default.png'}
-                  alt={t({ ar: developer.name_ar, en: developer.name_en })}
-                  fill
-                  className="object-contain"
-                />
-              ) : (
-                <Image
-                  src={convertGoogleDriveUrl(developer.logo) || '/logos/default.png'}
-                  alt={t({ ar: developer.name_ar, en: developer.name_en })}
-                  fill
-                  className="object-contain"
-                  unoptimized
-                />
-              )}
+              <Image
+                src={developer.logo || '/logos/default.png'}
+                alt={t({ ar: developer.name_ar, en: developer.name_en })}
+                fill
+                className="object-contain"
+                unoptimized
+              />
             </div>
             <div className="flex-1 text-center md:text-right rtl:md:text-left">
               <div className="flex items-center justify-center md:justify-end rtl:md:justify-start gap-4 mb-4">

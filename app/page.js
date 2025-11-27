@@ -2,9 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import GoogleDriveImage from '@/components/GoogleDriveImage';
 import { useLanguage } from '@/context/LanguageContext';
-import { convertGoogleDriveUrl, isGoogleDriveUrl } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SectionHeader from '@/components/SectionHeader';
@@ -41,8 +39,8 @@ export default function Home() {
 
   const featuredProjects = projectsData.slice(0, 6);
   const heroImages = [
-    convertGoogleDriveUrl('https://drive.google.com/file/d/1A6PdIvXHPNifZJ6r8DRXj4wpwNr9795p/view?usp=sharing'),
-    convertGoogleDriveUrl('https://drive.google.com/file/d/1DC79hQjquKI53xWewYXLI6UosblZWF6j/view?usp=sharing'),
+    'https://png.pngtree.com/thumb_back/fw800/background/20240601/pngtree-real-estate-luxury-building-sale-property-background-images-image_15851318.jpg',
+    'https://th.bing.com/th/id/OIP.Jy16vSGLOrlRWJ-2BrVMrgHaFj?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3',
     '/assets/brand/images/shutterstock_2558087881.jpg',
   ];
 
@@ -54,23 +52,14 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          {isGoogleDriveUrl(heroImages[1]) ? (
-            <GoogleDriveImage
-              src={heroImages[1]}
-              alt="Yafel Real Estate"
-              fill
-              className="object-cover"
-            />
-          ) : (
-            <Image
-              src={heroImages[1]}
-              alt="Yafel Real Estate"
-              fill
-              className="object-cover"
-              priority
-              unoptimized
-            />
-          )}
+          <Image
+            src={heroImages[1]}
+            alt="Yafel Real Estate"
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
           <div className="absolute inset-0 bg-gradient-to-br from-[#1e1e1e]/80 via-[#1e1e1e]/70 to-[#1e1e1e]/80"></div>
         </div>
 

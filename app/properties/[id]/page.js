@@ -2,7 +2,6 @@
 
 import { useParams } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
-import { convertGoogleDriveUrl } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Button from '@/components/ui/Button';
@@ -27,7 +26,7 @@ export default function PropertyDetailsPage() {
       'https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2256037689_mc4cxv',
       'https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2209394407_uuurxb',
       '/assets/brand/images/shutterstock_2558087881.jpg',
-      convertGoogleDriveUrl('https://drive.google.com/file/d/1A6PdIvXHPNifZJ6r8DRXj4wpwNr9795p/view?usp=sharing'),
+      'https://png.pngtree.com/thumb_back/fw800/background/20240601/pngtree-real-estate-luxury-building-sale-property-background-images-image_15851318.jpg',
     ],
     features: [
       { ar: '4 غرف نوم', en: '4 Bedrooms' },

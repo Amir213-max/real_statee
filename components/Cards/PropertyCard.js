@@ -2,9 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import GoogleDriveImage from '@/components/GoogleDriveImage';
 import { useLanguage } from '@/context/LanguageContext';
-import { convertGoogleDriveUrl, isGoogleDriveUrl } from '@/lib/utils';
 import Card from '@/components/ui/Card';
 import Badge from '@/components/Badge';
 
@@ -16,22 +14,13 @@ export default function PropertyCard({ property }) {
     <Link href={`/properties/${property.id}`}>
       <Card hover className={`${isRTL ? 'rtl' : 'ltr'}`}>
         <div className="relative h-56 w-full overflow-hidden">
-          {isGoogleDriveUrl(property.image) ? (
-            <GoogleDriveImage
-              src={property.image || 'https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2256037689_mc4cxv'}
-              alt={property.name}
-              fill
-              className="object-cover transition-transform duration-300 hover:scale-105"
-            />
-          ) : (
-            <Image
-              src={convertGoogleDriveUrl(property.image) || 'https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2256037689_mc4cxv'}
-              alt={property.name}
-              fill
-              className="object-cover transition-transform duration-300 hover:scale-105"
-              unoptimized
-            />
-          )}
+          <Image
+            src={property.image || 'https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2256037689_mc4cxv'}
+            alt={property.name}
+            fill
+            className="object-cover transition-transform duration-300 hover:scale-105"
+            unoptimized
+          />
           {property.featured && (
             <div className="absolute top-4 right-4 rtl:right-auto rtl:left-4">
               <Badge variant="secondary">

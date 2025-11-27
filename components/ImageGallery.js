@@ -2,18 +2,14 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import GoogleDriveImage from '@/components/GoogleDriveImage';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import { convertGoogleDriveUrl, isGoogleDriveUrl } from '@/lib/utils';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export default function ImageGallery({ images }) {
-  const [selectedImage, setSelectedImage] = useState(
-    convertGoogleDriveUrl(images?.[0]) || '/default.jpg'
-  );
+  const [selectedImage, setSelectedImage] = useState(images?.[0] || '/default.jpg');
 
   if (!images || images.length === 0) {
     return (
@@ -41,22 +37,13 @@ export default function ImageGallery({ images }) {
   return (
     <div className="space-y-4">
       <div className="relative w-full h-96 rounded-lg overflow-hidden">
-        {isGoogleDriveUrl(selectedImage) ? (
-          <GoogleDriveImage
-            src={selectedImage}
-            alt="Main"
-            fill
-            className="object-cover"
-          />
-        ) : (
-          <Image
-            src={selectedImage}
-            alt="Main"
-            fill
-            className="object-cover"
-            unoptimized
-          />
-        )}
+        <Image
+          src={selectedImage}
+          alt="Main"
+          fill
+          className="object-cover"
+          unoptimized
+        />
       </div>
       {images.length > 1 && (
         <Swiper
@@ -66,36 +53,24 @@ export default function ImageGallery({ images }) {
           navigation
           className="h-24"
         >
-          {images.map((img, index) => {
-            const convertedUrl = convertGoogleDriveUrl(img);
-            return (
-              <SwiperSlide key={index}>
-                <div
-                  className={`relative w-full h-full rounded-lg overflow-hidden cursor-pointer border-2 ${
-                    selectedImage === convertedUrl ? 'border-blue-600' : 'border-transparent'
-                  }`}
-                  onClick={() => setSelectedImage(convertedUrl)}
-                >
-                  {isGoogleDriveUrl(img) ? (
-                    <GoogleDriveImage
-                      src={img}
-                      alt={`Thumbnail ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  ) : (
-                    <Image
-                      src={convertedUrl}
-                      alt={`Thumbnail ${index + 1}`}
-                      fill
-                      className="object-cover"
-                      unoptimized
-                    />
-                  )}
-                </div>
-              </SwiperSlide>
-            );
-          })}
+          {images.map((img, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className={`relative w-full h-full rounded-lg overflow-hidden cursor-pointer border-2 ${
+                  selectedImage === img ? 'border-blue-600' : 'border-transparent'
+                }`}
+                onClick={() => setSelectedImage(img)}
+              >
+                <Image
+                  src={img}
+                  alt={`Thumbnail ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       )}
     </div>
