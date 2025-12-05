@@ -335,3 +335,46 @@ body {
 .property-thumbs-swiper .swiper-slide:hover {
   transform: translateY(-4px);
 }
+
+/* Swiper Navigation Styles for Homepage */
+.new-projects-swiper .swiper-button-next,
+.new-projects-swiper .swiper-button-prev,
+.most-searched-swiper .swiper-button-next,
+.most-searched-swiper .swiper-button-prev {
+  color: #1e1e1e;
+  background: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.new-projects-swiper .swiper-button-next:hover,
+.new-projects-swiper .swiper-button-prev:hover,
+.most-searched-swiper .swiper-button-next:hover,
+.most-searched-swiper .swiper-button-prev:hover {
+  background: #f0cb8e;
+  transform: scale(1.1);
+}
+
+.new-projects-swiper .swiper-button-next::after,
+.new-projects-swiper .swiper-button-prev::after,
+.most-searched-swiper .swiper-button-next::after,
+.most-searched-swiper .swiper-button-prev::after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* RTL Support for Swiper */
+.rtl .new-projects-swiper .swiper-button-next,
+.rtl .most-searched-swiper .swiper-button-next {
+  left: 0;
+  right: auto;
+}
+
+.rtl .new-projects-swiper .swiper-button-prev,
+.rtl .most-searched-swiper .swiper-button-prev {
+  right: 0;
+  left: auto;
+}
