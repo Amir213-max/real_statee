@@ -3,10 +3,13 @@ import { Hepta_Slab } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin", "arabic"],
+import { Tajawal } from "next/font/google";
+
+const tajawal = Tajawal({
+  subsets: ["arabic"],
+  weight: ["400", "500", "700"],
 });
+
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -26,9 +29,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" className={tajawal.className}>
+
       <body
-        className={`${heptaSlab.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${heptaSlab.variable}  ${geistMono.variable} antialiased`}
       >
         <Providers>
           {children}
