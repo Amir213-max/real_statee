@@ -26,6 +26,13 @@ export default function Home() {
   const [bedrooms, setBedrooms] = useState('');
   const [bathrooms, setBathrooms] = useState('');
   const [priceRange, setPriceRange] = useState('');
+  const [assistanceForm, setAssistanceForm] = useState({
+    name: '',
+    location: '',
+    phone: '',
+    phoneCode: '+20',
+    message: '',
+  });
   const isRTL = language === 'ar';
 
   const translations = {
@@ -63,6 +70,18 @@ export default function Home() {
     returnBeforeTax: { ar: 'عائد قبل الضرائب', en: 'return before taxes' },
     months: { ar: 'شهور', en: 'months' },
     all: { ar: 'الكل', en: 'All' },
+    needAssistance: { ar: 'تحتاج إلى مساعدة عقارية؟', en: 'Do you need real estate assistance?' },
+    assistanceSubtitle: {
+      ar: 'املأ بياناتك و سوف يقوم خبير عقارى بالاتصال بك في اقرب وقت',
+      en: 'Fill in your details and a real estate expert will contact you as soon as possible',
+    },
+    nameLabel: { ar: 'الاسم', en: 'Name' },
+    locationLabel: { ar: 'الموقع', en: 'Location' },
+    phoneLabel: { ar: 'رقم الهاتف', en: 'Phone Number' },
+    messageLabel: { ar: 'رسالة', en: 'Message' },
+    send: { ar: 'ارسال', en: 'Send' },
+    preferredLocation: { ar: 'الموقع المفضل', en: 'Preferred Location' },
+    yourMessage: { ar: 'رسالتك', en: 'Your Message' },
   };
 
   // Search For Cards Data
@@ -635,32 +654,147 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Brand Story Section */}
-      <section className="py-24 bg-gradient-to-br from-[#1e1e1e] to-[#353535] text-[#efefef]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fadeInUp">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                {language === 'ar' ? 'قصتنا' : 'Our Story'}
-              </h2>
-              <p className="text-lg text-[#cfcfcf] mb-6 leading-relaxed">
-                {language === 'ar'
-                  ? 'يافل هي علامة تجارية عقارية فاخرة مستوحاة من جمال البحر الأحمر وروح الاتصال بين مصر والمملكة العربية السعودية. نحن نؤمن ببناء مجتمعات مستدامة وخلق قيمة حقيقية للمستثمرين والمقيمين على حد سواء.'
-                  : 'Yafel is a premium real estate brand inspired by the beauty of the Red Sea and the spirit of connection between Egypt and Saudi Arabia. We believe in building sustainable communities and creating real value for both investors and residents.'}
-              </p>
-              <Button variant="secondary" className="hover-lift">
-                {language === 'ar' ? 'تعرف علينا أكثر' : 'Learn More About Us'}
-              </Button>
+      {/* Real Estate Assistance Form Section */}
+      <section className="py-12 sm:py-16 ">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 w-full overflow-hidden">
+            {/* Icon */}
+            <div className="flex justify-center mb-4 sm:mb-6">
+              <div className="relative group">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-105 transition-transform duration-300">
+                  {/* Envelope Icon */}
+                  <svg className="w-12 h-12 sm:w-14 sm:h-14 text-white transform group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  {/* Phone Icon Overlay */}
+                  <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1.5 sm:p-2 shadow-md transform group-hover:rotate-12 transition-transform duration-300">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden animate-scaleIn hover-lift">
-              <Image
-                src="https://res.cloudinary.com/dqqmswaf7/image/upload/shutterstock_2209394407_uuurxb"
-                alt="Yafel Real Estate"
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-110"
-                unoptimized
-              />
-            </div>
+
+            {/* Title */}
+            <h2 className={`text-xl sm:text-2xl md:text-3xl font-bold text-[#1e1e1e] mb-2 sm:mb-3 text-center ${isRTL ? 'text-right' : 'text-left'}`}>
+              {t(translations.needAssistance)}
+            </h2>
+
+            {/* Subtitle */}
+            <p className={`text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 text-center px-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+              {t(translations.assistanceSubtitle)}
+            </p>
+
+            {/* Form */}
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              console.log('Form submitted:', assistanceForm);
+              // Handle form submission here
+            }} className="space-y-3 sm:space-y-4 w-full">
+              {/* Name Field */}
+              <div className="w-full">
+                <label className={`block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  {t(translations.nameLabel)} <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={assistanceForm.name}
+                  onChange={(e) => setAssistanceForm({ ...assistanceForm, name: e.target.value })}
+                  placeholder={t(translations.nameLabel)}
+                  required
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base text-[#1e1e1e] bg-white transition-all duration-200"
+                />
+              </div>
+
+              {/* Location Field */}
+              <div className="w-full">
+                <label className={`block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  {t(translations.locationLabel)} <span className="text-red-500">*</span>
+                </label>
+                <div className="relative w-full">
+                  <select
+                    value={assistanceForm.location}
+                    onChange={(e) => setAssistanceForm({ ...assistanceForm, location: e.target.value })}
+                    required
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base text-[#1e1e1e] bg-white transition-all duration-200 appearance-none cursor-pointer pr-8 sm:pr-10"
+                  >
+                    <option value="">{t(translations.preferredLocation)}</option>
+                    {destinationsData.map((dest) => (
+                      <option key={dest.id} value={dest.id}>
+                        {t({ ar: dest.name_ar, en: dest.name_en })}
+                      </option>
+                    ))}
+                  </select>
+                  <div className={`absolute inset-y-0 flex items-center pointer-events-none ${isRTL ? 'left-0 pl-3' : 'right-0 pr-3'}`}>
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phone Field */}
+              <div className="w-full">
+                <label className={`block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  {t(translations.phoneLabel)} <span className="text-red-500">*</span>
+                </label>
+                <div className="flex flex-col sm:flex-row gap-2 w-full">
+                  <div className="relative w-full sm:w-auto">
+                    <select
+                      value={assistanceForm.phoneCode}
+                      onChange={(e) => setAssistanceForm({ ...assistanceForm, phoneCode: e.target.value })}
+                      className="w-full sm:w-auto px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base text-[#1e1e1e] bg-white transition-all duration-200 appearance-none cursor-pointer sm:min-w-[110px] pr-8 sm:pr-10"
+                    >
+                      <option value="+20">🇪🇬 +20</option>
+                      <option value="+966">🇸🇦 +966</option>
+                      <option value="+971">🇦🇪 +971</option>
+                      <option value="+965">🇰🇼 +965</option>
+                      <option value="+974">🇶🇦 +974</option>
+                      <option value="+973">🇧🇭 +973</option>
+                      <option value="+968">🇴🇲 +968</option>
+                    </select>
+                    <div className={`absolute inset-y-0 flex items-center pointer-events-none ${isRTL ? 'left-0 pl-3' : 'right-0 pr-3'}`}>
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                  <input
+                    type="tel"
+                    value={assistanceForm.phone}
+                    onChange={(e) => setAssistanceForm({ ...assistanceForm, phone: e.target.value })}
+                    placeholder={t(translations.phoneLabel)}
+                    required
+                    className="flex-1 w-full sm:w-auto px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base text-[#1e1e1e] bg-white transition-all duration-200"
+                  />
+                </div>
+              </div>
+
+              {/* Message Field */}
+              <div className="w-full">
+                <label className={`block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  {t(translations.messageLabel)}
+                </label>
+                <textarea
+                  value={assistanceForm.message}
+                  onChange={(e) => setAssistanceForm({ ...assistanceForm, message: e.target.value })}
+                  placeholder={t(translations.yourMessage)}
+                  rows={4}
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base text-[#1e1e1e] bg-white resize-none transition-all duration-200"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-2 sm:pt-4 w-full">
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base"
+                >
+                  {t(translations.send)}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
